@@ -128,55 +128,60 @@ const matrixGenerator = (cardValues, size = 4) => {
   gameContainer.style.gridTemplateColumns = 'repeat(' + size + ', auto)';
 
   // Cartes
-  cards = document.querySelectorAll(".card-container");
-  cards.forEach((card) => {
-    card.addEventListener("click", () => {
-      // Si la carte sélectionnée n'a pas encore été trouvée, alors seulement exécuter 
-      if (!card.classList.contains("matched")) {
-        // Retourner la carte cliquée
-        card.classList.add("flipped");
-        // Si c'est la première carte (!firstCard car firstCard est initialement false)
-        if (!firstCard) {
-          // La carte actuelle devient la première carte
-          firstCard = card;
-          // La valeur de la carte actuelle devient la valeur de la première carte
-          firstCardValue = card.getAttribute("data-card-value");
-        } else {
-          // Incrémentation des mouvements car l'utilisateur a sélectionné une deuxième carte
-          movesCounter();
-          // Deuxième carte et valeur
-          secondCard = card;
-          let secondCardValue = card.getAttribute("data-card-value");
-          if (firstCardValue == secondCardValue) {
-            // Si les deux cartes correspondent, ajoutez la classe 'matched' pour que ces cartes soient ignorées la prochaine fois
-            firstCard.classList.add("matched");
-            secondCard.classList.add("matched");
-            // Mette 'firstCard' à false car la prochaine carte sera la première
-            firstCard = false;
-            // Incrémentation du compteur de victoires car l'utilisateur a trouvé une correspondance correcte
-            winCount += 1;
-            // Vérifie si 'winCount' est égal à la moitié de 'cardValues'
-            if (winCount == Math.floor(cardValues.length / 2)) {
-              result.innerHTML = '<h2>You Won</h2>' +
-              '<h4>Moves: ' + movesCount + '</h4>';
-              stopGame();
-            }
-          } else {
-            // Si les cartes ne correspondent pas
-            // Retourne les cartes à leur état normal
-            let [tempFirst, tempSecond] = [firstCard, secondCard];
-            firstCard = false;
-            secondCard = false;
-            let delay = setTimeout(() => {
-              tempFirst.classList.remove("flipped");
-              tempSecond.classList.remove("flipped");
-            }, 900);
-          }
-        }
-      }
-    });
-  });
-};
+   // Cartes
+
+
+   cards = document.querySelectorAll(".card-container");
+   cards.forEach((card) => {
+     card.addEventListener("click", () => {
+       // Si la carte sélectionnée n'a pas encore été trouvée, alors seulement exécuter 
+       if (!card.classList.contains("matched")) {
+         // Retourner la carte cliquée
+         card.classList.add("flipped");
+         // Si c'est la première carte (!firstCard car firstCard est initialement false)
+         if (!firstCard) {
+           // La carte actuelle devient la première carte
+           firstCard = card;
+           // La valeur de la carte actuelle devient la valeur de la première carte
+           firstCardValue = card.getAttribute("data-card-value");
+         } else {
+           // Incrémentation des mouvements car l'utilisateur a sélectionné une deuxième carte
+           movesCounter();
+           // Deuxième carte et valeur
+           secondCard = card;
+           let secondCardValue = card.getAttribute("data-card-value");
+           if (firstCardValue == secondCardValue) {
+             // Si les deux cartes correspondent,  la classe 'matched' pour que ces cartes soient ignorées la prochaine fois
+             firstCard.classList.add("matched");
+             secondCard.classList.add("matched");
+             // Mette 'firstCard' à false car la prochaine carte sera la première
+             firstCard = false;
+             // Incrémentation du compteur de victoires car l'utilisateur a trouvé une correspondance correcte
+             winCount += 1;
+             // Vérifiez si 'winCount' est égal à la moitié de 'cardValues'
+             if (winCount == Math.floor(cardValues.length / 2)) {
+               result.innerHTML = '<h2>You Won</h2>' +
+               '<h4>Moves: ' + movesCount + '</h4>';
+               stopGame();
+             }
+           } else {
+             // Si les cartes ne correspondent pas
+             // Retourner les cartes à leur état normal
+             let [tempFirst, tempSecond] = [firstCard, secondCard];
+             firstCard = false;
+             secondCard = false;
+            //  let delay = 
+            setTimeout(() => {
+               tempFirst.classList.remove("flipped");
+               tempSecond.classList.remove("flipped");
+             }, 900);
+           }
+         }
+       }
+     });
+   });
+ };
+ 
 
 // Démarrer le jeu
 startButton.addEventListener("click", () => {
@@ -206,25 +211,25 @@ stopButton.addEventListener(
 );
 
 // //Initialiser les valeurs et les appels de fonctions
-// const initializer = () => {
-//   result.innerText = "";
-//   winCount = 0;
-//   let cardValues = generateRandom();
-//   matrixGenerator(cardValues);
-
-//   console.log(cardValues);
-// };
-
-// // Initialiser les valeurs et les appels de fonctions
-
 const initializer = () => {
   result.innerText = "";
   winCount = 0;
-  const selectedFolder = folderSelect.value;
-  const items = generateItems(selectedFolder); // Déplacez la déclaration de 'items' ici
-  let cardValues = generateRandom(items);
+  let cardValues = generateRandom();
   matrixGenerator(cardValues);
+
+  console.log(cardValues);
 };
+
+// // Initialiser les valeurs et les appels de fonctions
+
+// const initializer = () => {
+//   result.innerText = "";
+//   winCount = 0;
+//   const selectedFolder = folderSelect.value;
+//   const items = generateItems(selectedFolder); // Déplacez la déclaration de 'items' ici
+//   let cardValues = generateRandom(items);
+//   matrixGenerator(cardValues);
+// };
 
 // folderSelect.addEventListener('change', initializer);
 
