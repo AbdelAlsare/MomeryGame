@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #333;
+    color: #f4f4f4;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  main {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    background-image: url('chemin_vers_votre_image.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+  }
+  main {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    background-image: url('chemin_vers_votre_image.jpg'); /* Remplacez 'chemin_vers_votre_image.jpg' par le chemin vers votre image */
+    background-size: cover; /* Cela garantit que l'image couvre toute la zone */
+    background-position: center; /* Cela positionne l'image au centre */
+  }
+
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  #username, #score, #best-score {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  }

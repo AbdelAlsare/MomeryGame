@@ -1,0 +1,182 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  main {
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  }
+
+  .heading{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: auto;
+    font-size: 30px;
+    z-index: 1000;
+    transition: .2s;
+    display: flex;
+    
+}
+
+header{ 
+    width:96%;
+    position: relative;
+    top:3rem; left:50%;
+    transform: translateX(-50%);
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1rem 2rem;
+    padding-top: 10px;
+    margin: 0 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    /* z-index: 1000;
+    transition: .2s; */
+  }
+ 
+
+
+  .wrapper {
+    box-sizing: content-box;
+    width: 26.87em;
+    padding: 2.5em 3em;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 0.6em;
+    box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2);
+  }
+  .game-container {
+    position: relative;
+    width: 100%;
+    display: grid;
+    gap: 0.6em;
+  }
+  .stats-container {
+    text-align: right;
+    margin-bottom: 1.2em;
+  }
+  .stats-container span {
+    font-weight: 600;
+  }
+  .card-container {
+    position: relative;
+    width: 6.25em;
+    height: 4.25em;
+    cursor: pointer;
+  }
+  .card-before,
+  .card-after {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #000000;
+    transition: transform 0.7s ease-out;
+    backface-visibility: hidden;
+  }
+  .card-before {
+    /* background-color: #f46831; */
+    /* background-image: url(""); */
+    font-size: 2.8em;
+    font-weight: 600;
+  
+  }
+  .card-after {
+    background-color: #ffffff;
+    transform: rotateY(180deg);
+  }
+  .card-container.flipped .card-before {
+    transform: rotatex(180deg);
+  }
+  .card-container.flipped .card-after {
+    transform: rotateY(0deg);
+  }
+  .controls-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    top: 0;
+  }
+  button {
+    border: none;
+    border-radius: 0.3em;
+    padding: 1em 1.5em;
+    cursor: pointer;
+  }
+  #stop {
+    font-size: 1.1em;
+    display: block;
+    margin: 1.1em auto 0 auto;
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .controls-container button {
+    font-size: 1.3em;
+    box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
+  }
+  .hide {
+    display: none;
+  }
+  #result {
+    text-align: center;
+  }
+  #result h2 {
+    font-size: 2.5em;
+  }
+  #result h4 {
+    font-size: 1.8em;
+    margin: 0.6em 0 1em 0;
+  }
+  /* Style pour le menu déroulant */
+#folder-select , #size-select{
+    width: 200px;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 0.3em;
+    padding: 0.5em;
+    font-size: 1em;
+  }
+
+
+  /* header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding:1rem 2rem;
+    
+    margin: 0 2rem; 
+  } */
+  header{ 
+    width:96%;
+    position: fixed;
+    top:3rem; left:50%;
+    transform: translateX(-50%);
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1rem 2rem;
+    margin: 0 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    z-index: 1000;
+    transition: .2s;
+  }
