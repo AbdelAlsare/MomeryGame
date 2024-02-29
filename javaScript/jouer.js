@@ -151,11 +151,11 @@ const matrixGenerator = (cardValues, size = 4) => {
             // Si les deux cartes correspondent, ajoutez la classe 'matched' pour que ces cartes soient ignorées la prochaine fois
             firstCard.classList.add("matched");
             secondCard.classList.add("matched");
-            // Mettez 'firstCard' à false car la prochaine carte sera la première
+            // Mette 'firstCard' à false car la prochaine carte sera la première
             firstCard = false;
             // Incrémentation du compteur de victoires car l'utilisateur a trouvé une correspondance correcte
             winCount += 1;
-            // Vérifiez si 'winCount' est égal à la moitié de 'cardValues'
+            // Vérifie si 'winCount' est égal à la moitié de 'cardValues'
             if (winCount == Math.floor(cardValues.length / 2)) {
               result.innerHTML = '<h2>You Won</h2>' +
               '<h4>Moves: ' + movesCount + '</h4>';
@@ -163,7 +163,7 @@ const matrixGenerator = (cardValues, size = 4) => {
             }
           } else {
             // Si les cartes ne correspondent pas
-            // Retournez les cartes à leur état normal
+            // Retourne les cartes à leur état normal
             let [tempFirst, tempSecond] = [firstCard, secondCard];
             firstCard = false;
             secondCard = false;
@@ -205,26 +205,26 @@ stopButton.addEventListener(
   })
 );
 
-//Initialiser les valeurs et les appels de fonctions
-const initializer = () => {
-  result.innerText = "";
-  winCount = 0;
-  let cardValues = generateRandom();
-  matrixGenerator(cardValues);
-
-  console.log(cardValues);
-};
-
-// // Initialiser les valeurs et les appels de fonctions
-
+// //Initialiser les valeurs et les appels de fonctions
 // const initializer = () => {
 //   result.innerText = "";
 //   winCount = 0;
-//   const selectedFolder = folderSelect.value;
-//   const items = generateItems(selectedFolder); // Déplacez la déclaration de 'items' ici
-//   let cardValues = generateRandom(items);
+//   let cardValues = generateRandom();
 //   matrixGenerator(cardValues);
+
+//   console.log(cardValues);
 // };
+
+// // Initialiser les valeurs et les appels de fonctions
+
+const initializer = () => {
+  result.innerText = "";
+  winCount = 0;
+  const selectedFolder = folderSelect.value;
+  const items = generateItems(selectedFolder); // Déplacez la déclaration de 'items' ici
+  let cardValues = generateRandom(items);
+  matrixGenerator(cardValues);
+};
 
 // folderSelect.addEventListener('change', initializer);
 
